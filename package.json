@@ -3,6 +3,8 @@
   "version": "0.0.0",
   "description": "UCSC Klesis Summer Challenge 2017 - Front End Work",
   "scripts": {
+    "build": "webpack -p",
+    "start": "webpack-dev-server --inline --hot --colors",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -10,5 +12,10 @@
     "url": "git+https://github.com/djtsai/klesis-challenge-react.git"
   },
   "author": "Daniel Tsai",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5"
+  }
 }
