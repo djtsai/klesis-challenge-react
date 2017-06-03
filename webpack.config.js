@@ -10,5 +10,14 @@ module.exports = {
         path: BUILD_DIR,
         publicPath: '/dist/',
         filename: 'bundle.js'
+    },
+    module: {
+        loaders : [
+            {
+                test : /\.jsx?/,
+                include : APP_DIR,
+                loader : 'babel-loader'
+            }
+        ]
     }
 };
