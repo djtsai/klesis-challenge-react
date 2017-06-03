@@ -1,0 +1,14 @@
+{
+  "name": "klesis-challenge-react",
+  "version": "0.0.0",
+  "description": "UCSC Klesis Summer Challenge 2017 - Front End Work",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/djtsai/klesis-challenge-react.git"
+  },
+  "author": "Daniel Tsai",
+  "license": "ISC"
+}
