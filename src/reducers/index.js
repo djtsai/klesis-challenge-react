@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
-import tempPlaceholder from './tempPlaceholder'
+import redirect from './redirect'
+import toast from './toast'
 
 const rootReducer = combineReducers({
-    tempPlaceholder
+    redirect,
+    toast
 })
 
 export default rootReducer
