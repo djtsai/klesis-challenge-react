@@ -4,7 +4,7 @@
   "description": "UCSC Klesis Summer Challenge 2017 - Front End Work",
   "scripts": {
     "build": "webpack -p",
-    "start": "webpack-dev-server --inline --hot --colors --content-base public/",
+    "start": "webpack-dev-server --inline --hot --content-base public/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -29,6 +29,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.4",
+    "file-loader": "^0.11.1",
     "node-sass": "^4.5.3",
     "sass-loader": "^6.0.5",
     "style-loader": "^0.18.1",
