@@ -11,6 +11,9 @@ module.exports = {
         publicPath: '/dist/',
         filename: 'bundle.js'
     },
+    resolve: {
+        extensions: [ '.js', '.jsx', '.json' ]
+    },
     module: {
         loaders : [
             {
