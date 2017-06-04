@@ -57,8 +57,11 @@ typings/
 # dotenv environment variables file
 .env
 
-JetBrains IDE
+# Mac OSX
+.DS_Store
+
+# JetBrains IDE
 .idea
 
-Build directory
+# Build directory
 public/dist

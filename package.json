@@ -4,7 +4,7 @@
   "description": "UCSC Klesis Summer Challenge 2017 - Front End Work",
   "scripts": {
     "build": "webpack -p",
-    "start": "webpack-dev-server --inline --hot --content-base public/",
+    "start": "webpack-dev-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

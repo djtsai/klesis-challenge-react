@@ -1,8 +1,9 @@
-var webpack = require('webpack');
-var path = require('path');
+var webpack = require('webpack')
+var path = require('path')
 
-var BUILD_DIR = path.resolve(__dirname, 'public/dist');
-var APP_DIR = path.resolve(__dirname, 'src');
+var PUBLIC_DIR = path.resolve(__dirname, 'public')
+var BUILD_DIR = path.resolve(__dirname, 'public/dist')
+var APP_DIR = path.resolve(__dirname, 'src')
 var ASSET_DIR = path.resolve(__dirname, 'src/assets')
 
 module.exports = {
@@ -32,5 +33,11 @@ module.exports = {
                 loader: 'file-loader'
             }
         ]
+    },
+    devServer: {
+        port: 3000,
+        historyApiFallback: true,
+        inline: true,
+        contentBase: PUBLIC_DIR
     }
-};
+}
