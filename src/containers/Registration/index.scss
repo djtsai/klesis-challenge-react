@@ -1,8 +1,11 @@
 .registration-container {
-  .registration-header {
-    text-align: center;
-  }
-  .registration-submit-button {
-    text-align: center;
+  .panel {
+    margin-top: 20px;
+    .registration-header {
+      text-align: center;
+    }
+    .registration-submit-button {
+      text-align: center;
+    }
   }
 }
