@@ -4,7 +4,7 @@
   "description": "UCSC Klesis Summer Challenge 2017 - Front End Work",
   "scripts": {
     "build": "webpack -p",
-    "start": "webpack-dev-server",
+    "start": "NODE_ENV=development webpack-dev-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,6 +23,7 @@
     "redux": "^3.6.0",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
+    "superagent": "^3.5.2",
     "validator": "^7.0.0"
   },
   "devDependencies": {

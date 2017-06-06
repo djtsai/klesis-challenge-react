@@ -6,6 +6,8 @@ var BUILD_DIR = path.resolve(__dirname, 'public/dist')
 var APP_DIR = path.resolve(__dirname, 'src')
 var ASSET_DIR = path.resolve(__dirname, 'src/assets')
 
+var PROD = process.env.NODE_ENV || 'production'
+
 module.exports = {
     entry: APP_DIR + '/index.jsx',
     output: {
@@ -34,6 +36,13 @@ module.exports = {
             }
         ]
     },
+    plugins: [
+        new webpack.DefinePlugin({
+            'process.env': {
+                'NODE_ENV': JSON.stringify(PROD)
+            }
+        })
+    ],
     devServer: {
         port: 3000,
         historyApiFallback: true,
