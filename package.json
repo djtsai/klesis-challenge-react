@@ -1,6 +1,6 @@
 {
   "name": "klesis-challenge-react",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "UCSC Klesis Summer Challenge 2017 - Front End Work",
   "scripts": {
     "build": "webpack -p",
