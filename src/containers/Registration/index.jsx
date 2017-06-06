@@ -1,12 +1,26 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 import PageHeader from 'react-bootstrap/lib/PageHeader'
 import FormGroup from 'react-bootstrap/lib/FormGroup'
 import ControlLabel from 'react-bootstrap/lib/ControlLabel'
 import FormControl from 'react-bootstrap/lib/FormControl'
 import Button from 'react-bootstrap/lib/Button'
+import * as RegistrationActions from '../../actions/registrationActions'
 import { validateEmail } from '../../utils/validation'
 
 import './index.scss'
+
+function mapStateToProps(state) {
+    return {}
+}
+
+function mapDispatchToProps(dispatch) {
+    const actions = RegistrationActions
+
+    return bindActionCreators(actions, dispatch)
+}
 
 class Registration extends React.Component {
     constructor(props) {
@@ -62,11 +76,21 @@ class Registration extends React.Component {
                     <FormControl.Feedback/>
                 </FormGroup>
                 <div className="registration-submit-button">
-                    <Button bsStyle="primary" disabled={!this.validateRegistration()}>Submit</Button>
+                    <Button
+                        bsStyle="primary"
+                        disabled={!this.validateRegistration()}
+                        onClick={() => this.props.register(this.state.email, this.state.firstName, this.state.lastName)}
+                    >
+                        Submit
+                    </Button>
                 </div>
             </div>
         )
     }
 }
 
-export default Registration
+Registration.propTypes = {
+    register: PropTypes.func.isRequired
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Registration)
