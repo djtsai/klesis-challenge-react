@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { Switch, Route } from 'react-router-dom'
+import Grid from 'react-bootstrap/lib/Grid'
 import Notifications, { notify } from 'react-notify-toast'
 import Login from './Login'
 import Registration from './Registration'
@@ -46,14 +47,14 @@ class KlesisChallenge extends React.Component {
 
     render() {
         return (
-            <div className="klesis-challenge-container">
+            <Grid className="klesis-challenge-container" fluid={true}>
                 <Notifications/>
                 <Switch>
                     <Route path="/login" component={Login}/>
                     <Route path="/registration" component={Registration}/>
                     <Route path="/" component={Home}/>
                 </Switch>
-            </div>
+            </Grid>
         )
     }
 }
