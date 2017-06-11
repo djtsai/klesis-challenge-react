@@ -1,5 +1,15 @@
 .login-container {
-  .login-header {
-    text-align: center;
+  .panel {
+    margin-top: 20px;
+    .login-header {
+      text-align: center;
+    }
+    .login-button {
+      display: inline-block;
+    }
+    .registration-link {
+      display: inline-block;
+      float: right;
+    }
   }
 }

@@ -29,12 +29,6 @@ class KlesisChallenge extends React.Component {
         this.show = notify.createShowQueue()
     }
 
-    componentWillMount() {
-        if (this.props.match.isExact) {
-            this.props.history.push('/registration')
-        }
-    }
-
     componentWillReceiveProps(nextProps) {
         if (nextProps.toast.show) {
             this.show(nextProps.toast.message, nextProps.toast.type, 3000, {})
