@@ -11,7 +11,7 @@ module.exports = [{
     pattern: `api/(.*)`,
 
     fixtures(match) {
-        if (match[1].match(/persons\/?$/)) {
+        if (match[1].match(/persons/)) {
             return person
         }
 

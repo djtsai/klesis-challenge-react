@@ -1,3 +1,6 @@
+export const UPDATE_PERSON = 'UPDATE_PERSON'
+export const RESET_PERSON = 'RESET_PERSON'
+
 export const SET_REDIRECT = 'SET_REDIRECT'
 export const RESET_REDIRECT = 'RESET_REDIRECT'
 

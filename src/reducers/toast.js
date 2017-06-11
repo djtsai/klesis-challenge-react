@@ -1,6 +1,6 @@
 import * as ActionTypes from '../constants/ActionTypes'
 
-export const initialState = {
+const initialState = {
     show: false,
     message: '',
     type: ''
