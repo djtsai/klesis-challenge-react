@@ -12,6 +12,7 @@ import ControlLabel from 'react-bootstrap/lib/ControlLabel'
 import FormControl from 'react-bootstrap/lib/FormControl'
 import Button from 'react-bootstrap/lib/Button'
 import * as LoginActions from '../../actions/loginActions'
+import { isLoggedIn } from '../../utils/authManagement'
 import { validateEmail } from '../../utils/validation'
 
 import './index.scss'
@@ -32,6 +33,12 @@ class Login extends React.Component {
 
         this.state = {
             email: ''
+        }
+    }
+
+    componentWillMount() {
+        if (isLoggedIn()) {
+            this.props.history.push('/')
         }
     }
 
@@ -70,7 +77,8 @@ class Login extends React.Component {
 }
 
 Login.propTypes = {
-    login: PropTypes.func.isRequired
+    login: PropTypes.func.isRequired,
+    history: PropTypes.object.isRequired
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login)

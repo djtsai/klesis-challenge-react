@@ -11,6 +11,7 @@ import ControlLabel from 'react-bootstrap/lib/ControlLabel'
 import FormControl from 'react-bootstrap/lib/FormControl'
 import Button from 'react-bootstrap/lib/Button'
 import * as RegistrationActions from '../../actions/registrationActions'
+import { isLoggedIn } from '../../utils/authManagement'
 import { validateEmail } from '../../utils/validation'
 
 import './index.scss'
@@ -36,6 +37,12 @@ class Registration extends React.Component {
         }
 
         this.validateRegistration = this.validateRegistration.bind(this)
+    }
+
+    componentWillMount() {
+        if (isLoggedIn()) {
+            this.props.history.push('/')
+        }
     }
 
     validateRegistration() {
