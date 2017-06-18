@@ -54,7 +54,7 @@ TeamPanel.propTypes = {
                 })
             ).isRequired,
             totalPoints: PropTypes.number.isRequired
-        }).isRequired
+        })
     ).isRequired
 }
 

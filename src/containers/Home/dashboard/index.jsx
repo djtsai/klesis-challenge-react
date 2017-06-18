@@ -21,7 +21,8 @@ function mapStateToProps(state) {
     return {
         person: state.person,
         tasksList: state.tasksList,
-        teamRoster: state.teamRoster
+        teamRoster: state.teamRoster,
+        teamsList: state.teamsList
     }
 }
 
@@ -119,7 +120,14 @@ Dashboard.propTypes = {
                 })
             ).isRequired,
             totalPoints: PropTypes.number.isRequired
-        }).isRequired
+        })
+    ).isRequired,
+    teamsList: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            name: PropTypes.string.isRequired,
+            totalPoints: PropTypes.number.isRequired
+        })
     ).isRequired
 }
 
