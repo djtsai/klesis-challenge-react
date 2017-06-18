@@ -32,6 +32,8 @@ module.exports = [{
                 return {
                     body: { response: 'Successfully registered!' }
                 }
+            case 'tasks':
+                return null
             default:
                 throwError(500, 'Could not post to endpoint!')
         }

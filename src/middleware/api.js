@@ -19,3 +19,7 @@ export function getPerson(email) {
 export function getTasks() {
     return request.get(`${API_URL}/tasks`)
 }
+
+export function postTask(personId, taskId) {
+    return request.post(`${API_URL}/tasks`).query({ personId, taskId })
+}
