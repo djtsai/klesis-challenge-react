@@ -6,6 +6,7 @@ function getInitialState() {
         firstName: '',
         lastName: '',
         email: '',
+        teamId: 0,
         tasks: [],
         totalPoints: 0
     }

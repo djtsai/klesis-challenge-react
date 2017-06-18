@@ -3,6 +3,7 @@ export const person = {
     firstName: "Jason",
     lastName: "Lu",
     email: "jason.lu@gpmail.org",
+    teamId: 1,
     tasks: [
         {
             id: 1,
