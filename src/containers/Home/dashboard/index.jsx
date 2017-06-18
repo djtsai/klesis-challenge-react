@@ -12,7 +12,8 @@ import NavHeader from '../../../components/NavHeader'
 import MePanel from '../../../components/MePanel'
 import TeamPanel from '../../../components/TeamPanel'
 import * as PersonActions from '../../../actions/personActions'
-import * as TasksActions from '../../../actions/taskActions'
+import * as TaskActions from '../../../actions/taskActions'
+import * as TeamActions from '../../../actions/teamActions'
 import { getLoggedInEmail } from '../../../utils/authManagement'
 
 import 'react-bootstrap-table/dist/react-bootstrap-table-all.min.css'
@@ -27,7 +28,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-    const actions = { ...PersonActions, ...TasksActions }
+    const actions = { ...PersonActions, ...TaskActions, ...TeamActions }
 
     return bindActionCreators(actions, dispatch)
 }
@@ -43,6 +44,7 @@ class Dashboard extends React.Component {
         }
 
         this.props.getTasks()
+        this.props.getTeams()
     }
 
     render() {
@@ -63,7 +65,11 @@ class Dashboard extends React.Component {
                             />
                         </Col>
                         <Col md={12} lg={4}>
-                            <TeamPanel teamRoster={this.props.teamRoster}/>
+                            <TeamPanel
+                                person={this.props.person}
+                                teamRoster={this.props.teamRoster}
+                                teamsList={this.props.teamsList}
+                            />
                         </Col>
                         <Col md={12} lg={4}>
                             <Panel header={<h3>All</h3>}>
@@ -80,6 +86,7 @@ class Dashboard extends React.Component {
 Dashboard.propTypes = {
     getPerson: PropTypes.func.isRequired,
     getTasks: PropTypes.func.isRequired,
+    getTeams: PropTypes.func.isRequired,
     addCompletedTask: PropTypes.func.isRequired,
     person: PropTypes.shape({
         id: PropTypes.number.isRequired,

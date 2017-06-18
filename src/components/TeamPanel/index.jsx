@@ -11,13 +11,15 @@ class TeamPanel extends React.Component {
     }
 
     render() {
-        const totalPoints = this.props.teamRoster.reduce((acc, person) => acc + person.totalPoints, 0)
+        const teamRoster = this.props.teamRoster
+        const totalPoints = teamRoster.reduce((acc, person) => acc + person.totalPoints, 0)
+        const team = this.props.teamsList.find(team => team.id === this.props.person.teamId) || {}
 
         return (
-            <Panel header={<h3>Team</h3>}>
+            <Panel header={<h3>{`Team - ${team.name}`}</h3>}>
                 <PersonInfo title="Total Points" value={`${totalPoints}`}/>
                 <BootstrapTable
-                    data={this.props.teamRoster}
+                    data={teamRoster}
                     striped={true}
                     height="auto"
                 >
@@ -38,6 +40,22 @@ class TeamPanel extends React.Component {
 }
 
 TeamPanel.propTypes = {
+    person: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        firstName: PropTypes.string.isRequired,
+        lastName: PropTypes.string.isRequired,
+        email: PropTypes.string.isRequired,
+        teamId: PropTypes.number.isRequired,
+        tasks: PropTypes.arrayOf(
+            PropTypes.shape({
+                id: PropTypes.number.isRequired,
+                name: PropTypes.string.isRequired,
+                points: PropTypes.number.isRequired,
+                completedDate: PropTypes.number.isRequired
+            })
+        ).isRequired,
+        totalPoints: PropTypes.number.isRequired
+    }).isRequired,
     teamRoster: PropTypes.arrayOf(
         PropTypes.shape({
             id: PropTypes.number.isRequired,
@@ -53,6 +71,13 @@ TeamPanel.propTypes = {
                     completedDate: PropTypes.number.isRequired
                 })
             ).isRequired,
+            totalPoints: PropTypes.number.isRequired
+        })
+    ).isRequired,
+    teamsList: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            name: PropTypes.string.isRequired,
             totalPoints: PropTypes.number.isRequired
         })
     ).isRequired
