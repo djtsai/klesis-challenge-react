@@ -32,5 +32,8 @@ export function login(email) {
 export function logout() {
     Auth.logout()
 
-    return { type: ActionTypes.RESET_PERSON }
+    return dispatch => {
+        dispatch({ type: ActionTypes.RESET_PERSON })
+        dispatch({ type: ActionTypes.RESET_TEAM_ROSTER })
+    }
 }

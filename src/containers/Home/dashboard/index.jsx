@@ -9,17 +9,19 @@ import Row from 'react-bootstrap/lib/Row'
 import Col from 'react-bootstrap/lib/Col'
 import Panel from 'react-bootstrap/lib/Panel'
 import NavHeader from '../../../components/NavHeader'
+import MePanel from '../../../components/MePanel'
+import TeamPanel from '../../../components/TeamPanel'
 import * as PersonActions from '../../../actions/personActions'
 import * as TasksActions from '../../../actions/taskActions'
 import { getLoggedInEmail } from '../../../utils/authManagement'
 
 import 'react-bootstrap-table/dist/react-bootstrap-table-all.min.css'
-import MePanel from "../../../components/MePanel/index";
 
 function mapStateToProps(state) {
     return {
         person: state.person,
-        tasksList: state.tasksList
+        tasksList: state.tasksList,
+        teamRoster: state.teamRoster
     }
 }
 
@@ -60,9 +62,7 @@ class Dashboard extends React.Component {
                             />
                         </Col>
                         <Col md={12} lg={4}>
-                            <Panel header={<h3>Team</h3>}>
-                                Test
-                            </Panel>
+                            <TeamPanel teamRoster={this.props.teamRoster}/>
                         </Col>
                         <Col md={12} lg={4}>
                             <Panel header={<h3>All</h3>}>
@@ -102,6 +102,24 @@ Dashboard.propTypes = {
             name: PropTypes.string.isRequired,
             points: PropTypes.number.isRequired
         })
+    ).isRequired,
+    teamRoster: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            firstName: PropTypes.string.isRequired,
+            lastName: PropTypes.string.isRequired,
+            email: PropTypes.string.isRequired,
+            teamId: PropTypes.number.isRequired,
+            tasks: PropTypes.arrayOf(
+                PropTypes.shape({
+                    id: PropTypes.number.isRequired,
+                    name: PropTypes.string.isRequired,
+                    points: PropTypes.number.isRequired,
+                    completedDate: PropTypes.number.isRequired
+                })
+            ).isRequired,
+            totalPoints: PropTypes.number.isRequired
+        }).isRequired
     ).isRequired
 }
 

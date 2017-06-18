@@ -19,7 +19,7 @@ module.exports = [{
             return tasks
         }
         if (match[1].match(/teams\/(\d)/)) {
-            return [ person ]
+            return [ person, person ]
         }
 
         throwError(405, 'Invalid route!')

@@ -6,6 +6,7 @@ export function getPerson(email) {
         API.getPerson(email).then(
             response => {
                 dispatch({ type: ActionTypes.UPDATE_PERSON, value: response.body })
+                getPersonsFromTeam(response.body.teamId)(dispatch)
             },
             error => {
                 dispatch({
