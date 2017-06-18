@@ -18,6 +18,9 @@ module.exports = [{
         if (match[1].match(/tasks/)) {
             return tasks
         }
+        if (match[1].match(/teams\/(\d)/)) {
+            return [ person ]
+        }
 
         throwError(405, 'Invalid route!')
     },

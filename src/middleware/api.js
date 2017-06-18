@@ -16,6 +16,10 @@ export function getPerson(email) {
     return request.get(`${API_URL}/persons`).query({ email })
 }
 
+export function getPersonsFromTeam(teamId) {
+    return request.get(`${API_URL}/teams/${teamId}`)
+}
+
 export function getTasks() {
     return request.get(`${API_URL}/tasks`)
 }
