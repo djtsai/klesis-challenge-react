@@ -26,9 +26,14 @@ class MePanel extends React.Component {
 
         return (
             <Panel header={<h3>Me</h3>}>
+                <h4>Personal Information</h4>
                 <PersonInfo title="Name" value={`${firstName} ${lastName}`}/>
                 <PersonInfo title="Email" value={email}/>
                 <PersonInfo title="Total Points" value={`${totalPoints}`}/>
+
+                <hr/>
+
+                <h4>Recent Tasks</h4>
                 <BootstrapTable
                     data={tasks}
                     striped={true}
