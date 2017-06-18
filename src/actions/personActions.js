@@ -18,3 +18,21 @@ export function getPerson(email) {
         )
     }
 }
+
+export function getPersonsFromTeam(teamId) {
+    return dispatch => {
+        API.getPersonsFromTeam(teamId).then(
+            response => {
+                dispatch({ type: ActionTypes.UPDATE_TEAM_ROSTER, value: response.body })
+            },
+            error => {
+                dispatch({
+                    type: ActionTypes.UPDATE_TOAST,
+                    toastMessage: `Could not get users in team!`,
+                    toastType: 'error'
+                })
+                dispatch({ type: ActionTypes.RESET_TOAST })
+            }
+        )
+    }
+}

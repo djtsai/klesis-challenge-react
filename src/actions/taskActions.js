@@ -1,6 +1,6 @@
 import * as ActionTypes from '../constants/ActionTypes'
 import * as API from '../middleware/api'
-import { getPerson } from './personActions'
+import * as PersonActions from './personActions'
 
 export function getTasks() {
     return dispatch => {
@@ -20,8 +20,8 @@ export function getTasks() {
     }
 }
 
-export function addCompletedTask(personId, taskId, email) {
-    return dispatch => {
+export function addCompletedTask(personId, taskId) {
+    return (dispatch, getState) => {
         API.postTask(personId, taskId).then(
             response => {
                 dispatch({
@@ -30,7 +30,8 @@ export function addCompletedTask(personId, taskId, email) {
                     toastType: 'success'
                 })
                 dispatch({ type: ActionTypes.RESET_TOAST })
-                getPerson(email)(dispatch)
+                PersonActions.getPerson(getState().person.email)(dispatch)
+                PersonActions.getPersonsFromTeam(getState().person.teamId)(dispatch)
             },
             error => {
                 dispatch({

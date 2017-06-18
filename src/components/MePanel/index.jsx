@@ -83,7 +83,7 @@ class MePanel extends React.Component {
                                     bsStyle="success"
                                     disabled={this.state.selectedTask === 'select'}
                                     onClick={() => {
-                                        this.props.addCompletedTask(id, this.state.selectedTask, email)
+                                        this.props.addCompletedTask(id, this.state.selectedTask)
                                         this.setState({ selectedTask: 'select' })
                                     }}
                                 >
