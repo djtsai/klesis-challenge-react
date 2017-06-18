@@ -28,11 +28,16 @@ class TeamPanel extends React.Component {
                     data={teamRoster}
                     striped={true}
                     height="auto"
+                    options={{
+                        defaultSortName: 'totalPoints',
+                        defaultSortOrder: 'desc'
+                    }}
                 >
                     <TableHeaderColumn
                         dataField="firstName"
                         dataFormat={(cell, row) => `${cell} ${row.lastName}`}
                         isKey={true}
+                        dataSort={true}
                     >
                         Name
                     </TableHeaderColumn>

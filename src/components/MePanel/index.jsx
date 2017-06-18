@@ -46,7 +46,7 @@ class MePanel extends React.Component {
                         sizePerPage: 5
                     }}
                 >
-                    <TableHeaderColumn dataField="name" width="160px">
+                    <TableHeaderColumn dataField="name" dataSort={true} width="160px">
                         Task Name
                     </TableHeaderColumn>
                     <TableHeaderColumn dataField="points" width="45px">

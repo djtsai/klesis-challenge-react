@@ -7,10 +7,10 @@ import PageHeader from 'react-bootstrap/lib/PageHeader'
 import Grid from 'react-bootstrap/lib/Grid'
 import Row from 'react-bootstrap/lib/Row'
 import Col from 'react-bootstrap/lib/Col'
-import Panel from 'react-bootstrap/lib/Panel'
 import NavHeader from '../../../components/NavHeader'
 import MePanel from '../../../components/MePanel'
 import TeamPanel from '../../../components/TeamPanel'
+import Leaderboard from '../../../components/LeaderboardPanel'
 import * as PersonActions from '../../../actions/personActions'
 import * as TaskActions from '../../../actions/taskActions'
 import * as TeamActions from '../../../actions/teamActions'
@@ -72,9 +72,7 @@ class Dashboard extends React.Component {
                             />
                         </Col>
                         <Col md={12} lg={4}>
-                            <Panel header={<h3>All</h3>}>
-                                Test
-                            </Panel>
+                            <Leaderboard teamsList={this.props.teamsList}/>
                         </Col>
                     </Row>
                 </Grid>
