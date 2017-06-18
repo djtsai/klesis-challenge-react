@@ -35,12 +35,17 @@ class NavHeader extends React.Component {
                 <Nav bsStyle="tabs">
                     <NavItem>Dashboard</NavItem>
                 </Nav>
+                <Navbar.Text>{`Welcome, ${this.props.name}!`}</Navbar.Text>
                 <Nav pullRight>
                     <NavItem onClick={this.handleLogout}>Logout</NavItem>
                 </Nav>
             </Navbar>
         )
     }
+}
+
+NavHeader.propTypes = {
+    name: PropTypes.string.isRequired
 }
 
 NavHeader.contextTypes = {

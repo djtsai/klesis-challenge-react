@@ -10,7 +10,7 @@ export function login(email) {
                 dispatch({ type: ActionTypes.UPDATE_PERSON, value: response.body })
                 dispatch({
                     type: ActionTypes.UPDATE_TOAST,
-                    toastMessage: `Welcome back ${email}!`,
+                    toastMessage: `Welcome back, ${email}!`,
                     toastType: 'success'
                 })
                 dispatch({ type: ActionTypes.RESET_TOAST })

@@ -10,6 +10,10 @@ export function isLoggedIn() {
     return sessionStorage.getItem(personId)
 }
 
+export function getLoggedInEmail() {
+    return sessionStorage.getItem(personEmail)
+}
+
 export function logout() {
     sessionStorage.removeItem(personId)
     sessionStorage.removeItem(personEmail)
