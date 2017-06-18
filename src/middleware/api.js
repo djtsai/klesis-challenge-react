@@ -27,3 +27,7 @@ export function getTasks() {
 export function postTask(personId, taskId) {
     return request.post(`${API_URL}/tasks`).query({ personId, taskId })
 }
+
+export function getTeams() {
+    return request.get(`${API_URL}/teams`)
+}

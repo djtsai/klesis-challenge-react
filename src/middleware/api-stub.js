@@ -1,5 +1,6 @@
 import { person } from './fixtures/persons-fixture'
 import { tasks } from './fixtures/tasks-fixture'
+import { teams } from './fixtures/teams-fixture'
 
 const throwError = (statusCode, errorMessage) => {
     const error = new Error(errorMessage)
@@ -17,6 +18,9 @@ module.exports = [{
         }
         if (match[1].match(/tasks/)) {
             return tasks
+        }
+        if (match[1].match(/teams$/)) {
+            return teams
         }
         if (match[1].match(/teams\/(\d)/)) {
             return [ person, person ]
