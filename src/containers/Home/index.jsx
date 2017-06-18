@@ -8,10 +8,14 @@ import Grid from 'react-bootstrap/lib/Grid'
 import Row from 'react-bootstrap/lib/Row'
 import Col from 'react-bootstrap/lib/Col'
 import Panel from 'react-bootstrap/lib/Panel'
+import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table'
 import NavHeader from '../../components/NavHeader'
 import PersonInfo from '../../components/PersonInfo'
 import * as PersonActions from '../../actions/personActions'
 import { isLoggedIn, getLoggedInEmail } from '../../utils/authManagement'
+import { utcTimestampToDate } from '../../utils/dateUtils'
+
+import 'react-bootstrap-table/dist/react-bootstrap-table-all.min.css'
 
 function mapStateToProps(state) {
     return {
@@ -39,7 +43,7 @@ class Home extends React.Component {
     }
 
     render() {
-        const { firstName, lastName, email, totalPoints } = this.props.person
+        const { firstName, lastName, email, tasks, totalPoints } = this.props.person
 
         return (
             <div className="home-container">
@@ -50,19 +54,47 @@ class Home extends React.Component {
                 </Jumbotron>
                 <Grid fluid={true} style={{ padding: "0" }}>
                     <Row>
-                        <Col sm={12} md={4}>
+                        <Col md={12} lg={4}>
                             <Panel header={<h3>Me</h3>}>
                                 <PersonInfo title="Name" value={`${firstName} ${lastName}`}/>
                                 <PersonInfo title="Email" value={email}/>
-                                <PersonInfo title="Total Points" value={totalPoints}/>
+                                <PersonInfo title="Total Points" value={`${totalPoints}`}/>
+                                <BootstrapTable
+                                    data={tasks}
+                                    striped={true}
+                                    height="auto"
+                                    pagination={true}
+                                    options={{
+                                        defaultSortName: 'completedDate',
+                                        defaultSortOrder: 'desc',
+                                        sizePerPageList: [ 5, 10, 25 ],
+                                        sizePerPage: 5
+                                    }}
+                                >
+                                    <TableHeaderColumn dataField="name" width="160px">
+                                        Task Name
+                                    </TableHeaderColumn>
+                                    <TableHeaderColumn dataField="points" width="45px">
+                                        Pts.
+                                    </TableHeaderColumn>
+                                    <TableHeaderColumn
+                                        dataField="completedDate"
+                                        dataFormat={cell => utcTimestampToDate(cell)}
+                                        isKey={true}
+                                        dataSort={true}
+                                        width="160px"
+                                    >
+                                        Completed Date
+                                    </TableHeaderColumn>
+                                </BootstrapTable>
                             </Panel>
                         </Col>
-                        <Col sm={12} md={4}>
+                        <Col md={12} lg={4}>
                             <Panel header={<h3>Team</h3>}>
                                 Test
                             </Panel>
                         </Col>
-                        <Col sm={12} md={4}>
+                        <Col md={12} lg={4}>
                             <Panel header={<h3>All</h3>}>
                                 Test
                             </Panel>
