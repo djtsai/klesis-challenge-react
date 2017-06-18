@@ -9,13 +9,13 @@ export const person = {
             id: 1,
             name: "DT",
             points: 1,
-            completedDate: 1497659441
+            completedDate: 1497659441000
         },
         {
-            id: 2,
+            id: 1,
             name: "DT",
             points: 1,
-            completedDate: 1497745878
+            completedDate: 1497745878000
         }
     ],
     totalPoints: 2

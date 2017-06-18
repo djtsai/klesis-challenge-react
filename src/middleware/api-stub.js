@@ -1,4 +1,5 @@
 import { person } from './fixtures/persons-fixture'
+import { tasks } from './fixtures/tasks-fixture'
 
 const throwError = (statusCode, errorMessage) => {
     const error = new Error(errorMessage)
@@ -13,6 +14,9 @@ module.exports = [{
     fixtures(match) {
         if (match[1].match(/persons/)) {
             return person
+        }
+        if (match[1].match(/tasks/)) {
+            return tasks
         }
 
         throwError(405, 'Invalid route!')

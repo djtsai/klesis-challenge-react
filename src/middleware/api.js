@@ -15,3 +15,7 @@ export function postPerson(email, firstName, lastName) {
 export function getPerson(email) {
     return request.get(`${API_URL}/persons`).query({ email })
 }
+
+export function getTasks() {
+    return request.get(`${API_URL}/tasks`)
+}
