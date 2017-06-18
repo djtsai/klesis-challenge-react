@@ -27,16 +27,16 @@ module.exports = [{
     },
 
     post(match) {
-        switch (match[1]) {
-            case 'persons':
-                return {
-                    body: { response: 'Successfully registered!' }
-                }
-            case 'tasks':
-                return null
-            default:
-                throwError(500, 'Could not post to endpoint!')
+        if (match[1].match(/persons/)) {
+            return {
+                body: { response: 'Successfully registered!' }
+            }
         }
+        if (match[1].match(/tasks/)) {
+            return null
+        }
+
+        throwError(405, 'Could not post to endpoint!')
     },
 
     put(match) {
