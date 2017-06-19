@@ -14,7 +14,7 @@ import Leaderboard from '../../../components/LeaderboardPanel'
 import * as PersonActions from '../../../actions/personActions'
 import * as TaskActions from '../../../actions/taskActions'
 import * as TeamActions from '../../../actions/teamActions'
-import { getLoggedInEmail } from '../../../utils/authManagement'
+import { isLoggedIn, getLoggedInEmail } from '../../../utils/authManagement'
 
 import 'react-bootstrap-table/dist/react-bootstrap-table-all.min.css'
 
@@ -39,7 +39,7 @@ class Dashboard extends React.Component {
     }
 
     componentWillMount() {
-        if (this.props.person.id === 0) {
+        if (isLoggedIn() && this.props.person.id === 0) {
             this.props.getPerson(getLoggedInEmail())
         }
 
