@@ -39,12 +39,14 @@ class Dashboard extends React.Component {
     }
 
     componentWillMount() {
-        if (isLoggedIn() && this.props.person.id === 0) {
-            this.props.getPerson(getLoggedInEmail())
-        }
+        if (isLoggedIn()) {
+            if (this.props.person.id === 0) {
+                this.props.getPerson(getLoggedInEmail())
+            }
 
-        this.props.getTasks()
-        this.props.getTeams()
+            this.props.getTasks()
+            this.props.getTeams()
+        }
     }
 
     render() {
