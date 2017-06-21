@@ -13,7 +13,7 @@ import FormControl from 'react-bootstrap/lib/FormControl'
 import Button from 'react-bootstrap/lib/Button'
 import * as LoginActions from '../../actions/loginActions'
 import { isLoggedIn } from '../../utils/authManagement'
-import { validateEmail } from '../../utils/validation'
+import { validateEmail, escape } from '../../utils/validation'
 
 import './index.scss'
 
@@ -43,15 +43,17 @@ class Login extends React.Component {
     }
 
     render() {
+        const email = this.state.email
+
         return (
             <Row className="login-container">
                 <Col xs={12} sm={6} smOffset={3}>
                     <Panel header={<PageHeader className="login-header">Login</PageHeader>}>
-                        <FormGroup controlId="email" validationState={validateEmail(this.state.email)}>
+                        <FormGroup controlId="email" validationState={validateEmail(email)}>
                             <ControlLabel>Email</ControlLabel>
                             <FormControl
                                 type="text"
-                                value={this.state.email}
+                                value={email}
                                 placeholder="john.smith@example.com"
                                 onChange={e => this.setState({ email: e.target.value })}
                             />
@@ -60,8 +62,8 @@ class Login extends React.Component {
                         <div className="login-button">
                             <Button
                                 bsStyle="primary"
-                                disabled={validateEmail(this.state.email) !== 'success'}
-                                onClick={() => this.props.login(this.state.email)}
+                                disabled={validateEmail(email) !== 'success'}
+                                onClick={() => this.props.login(escape(email))}
                             >
                                 Login
                             </Button>
