@@ -12,7 +12,7 @@ import FormControl from 'react-bootstrap/lib/FormControl'
 import Button from 'react-bootstrap/lib/Button'
 import * as RegistrationActions from '../../actions/registrationActions'
 import { isLoggedIn } from '../../utils/authManagement'
-import { validateEmail } from '../../utils/validation'
+import { validateEmail, validateName, escape } from '../../utils/validation'
 
 import './index.scss'
 
@@ -47,40 +47,42 @@ class Registration extends React.Component {
 
     validateRegistration() {
         return validateEmail(this.state.email) === 'success'
-            && this.state.firstName.length !== 0
-            && this.state.lastName.length !== 0
+            && validateName(this.state.firstName) === 'success'
+            && validateName(this.state.lastName) === 'success'
     }
 
     render() {
+        const { email, firstName, lastName } = this.state
+
         return (
             <Row className="registration-container">
                 <Col xs={12} sm={6} smOffset={3}>
                     <Panel header={<PageHeader className="registration-header">Registration</PageHeader>}>
-                        <FormGroup controlId="email" validationState={validateEmail(this.state.email)}>
+                        <FormGroup controlId="email" validationState={validateEmail(email)}>
                             <ControlLabel>Email</ControlLabel>
                             <FormControl
                                 type="text"
-                                value={this.state.email}
+                                value={email}
                                 placeholder="john.smith@example.com"
                                 onChange={e => this.setState({ email: e.target.value })}
                             />
                             <FormControl.Feedback/>
                         </FormGroup>
-                        <FormGroup controlId="firstName" validationState={this.state.firstName.length === 0 ? null : 'success'}>
+                        <FormGroup controlId="firstName" validationState={firstName.length === 0 ? null : 'success'}>
                             <ControlLabel>First Name</ControlLabel>
                             <FormControl
                                 type="text"
-                                value={this.state.firstName}
+                                value={firstName}
                                 placeholder="John"
                                 onChange={e => this.setState({ firstName: e.target.value })}
                             />
                             <FormControl.Feedback/>
                         </FormGroup>
-                        <FormGroup controlId="lastName" validationState={this.state.lastName.length === 0 ? null : 'success'}>
+                        <FormGroup controlId="lastName" validationState={lastName.length === 0 ? null : 'success'}>
                             <ControlLabel>Last Name</ControlLabel>
                             <FormControl
                                 type="text"
-                                value={this.state.lastName}
+                                value={lastName}
                                 placeholder="Smith"
                                 onChange={e => this.setState({ lastName: e.target.value })}
                             />
@@ -90,7 +92,7 @@ class Registration extends React.Component {
                             <Button
                                 bsStyle="primary"
                                 disabled={!this.validateRegistration()}
-                                onClick={() => this.props.register(this.state.email, this.state.firstName, this.state.lastName)}
+                                onClick={() => this.props.register(escape(email), escape(firstName), escape(lastName))}
                             >
                                 Submit
                             </Button>
