@@ -80,7 +80,7 @@ class Dashboard extends React.Component {
                 </Grid>
                 <Jumbotron style={{ textAlign: "center" }}>
                     <div>
-                        This app was built by UCSC Klesis team.
+                        This app is part of the Klesis Summer Challenge at UCSC.
                         If you find any bugs or have questions or suggestions for improvement,
                         please contact danieljtsai@gmail.com.
                     </div>
