@@ -16,7 +16,7 @@ class TeamPanel extends React.Component {
         const team = this.props.teamsList.find(team => team.id === this.props.person.teamId) || {}
 
         return (
-            <Panel header={<h3>{`Team - ${team.name || ''}`}</h3>}>
+            <Panel bsStyle="primary" header={<h3>{`Team - ${team.name || ''}`}</h3>}>
                 <h4>Team Information</h4>
                 <PersonInfo title="Team Name" value={team.name || ''}/>
                 <PersonInfo title="Total Points" value={`${totalPoints}`}/>

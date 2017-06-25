@@ -25,7 +25,7 @@ class MePanel extends React.Component {
         const { id, firstName, lastName, email, tasks, totalPoints } = this.props.person
 
         return (
-            <Panel header={<h3>Me</h3>}>
+            <Panel bsStyle="primary" header={<h3>Me</h3>}>
                 <h4>Personal Information</h4>
                 <PersonInfo title="Name" value={`${firstName} ${lastName}`}/>
                 <PersonInfo title="Email" value={email}/>

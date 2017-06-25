@@ -7,7 +7,7 @@ import TableHeaderColumn from 'react-bootstrap-table/lib/TableHeaderColumn'
 class LeaderboardPanel extends React.Component {
     render() {
         return (
-            <Panel header={<h3>Team Leaderboard</h3>}>
+            <Panel bsStyle="primary" header={<h3>Team Leaderboard</h3>}>
                 <BootstrapTable
                     data={this.props.teamsList}
                     striped={true}
