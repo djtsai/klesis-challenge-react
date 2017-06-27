@@ -8,7 +8,14 @@ const loggerMiddleware = createLogger({
     collapsed: true
 })
 
-const createStoreWithMiddleware = applyMiddleware(thunkMiddleware, loggerMiddleware)(createStore)
+let storeEnhancer
+if (process.env.NODE_ENV === 'development') {
+    storeEnhancer = applyMiddleware(thunkMiddleware, loggerMiddleware)
+} else {
+    storeEnhancer = applyMiddleware(thunkMiddleware)
+}
+
+const createStoreWithMiddleware = storeEnhancer(createStore)
 
 export default function configureStore(initialState) {
     const store = createStoreWithMiddleware(rootReducer, initialState)
