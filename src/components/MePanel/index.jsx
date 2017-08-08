@@ -42,8 +42,9 @@ class MePanel extends React.Component {
                     options={{
                         defaultSortName: 'completedDate',
                         defaultSortOrder: 'desc',
+                        paginationSize: 3,
                         sizePerPageList: [ 5, 10, 25 ],
-                        sizePerPage: 5
+                        sizePerPage: 10
                     }}
                 >
                     <TableHeaderColumn dataField="name" dataSort={true} width="160px">

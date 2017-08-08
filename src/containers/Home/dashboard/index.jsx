@@ -51,7 +51,7 @@ class Dashboard extends React.Component {
             <div className="dashboard-container">
                 <NavHeader name={this.props.person.firstName}/>
                 <Jumbotron>
-                    <PageHeader>Welcome to Klesis Summer Challenge 2017!</PageHeader>
+                    <PageHeader>Klesis Summer Challenge 2017!</PageHeader>
                     <p>Let's grow together!</p>
                 </Jumbotron>
                 <Grid fluid={true} style={{ padding: "0" }}>
