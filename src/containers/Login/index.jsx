@@ -46,7 +46,14 @@ class Login extends React.Component {
         const email = this.state.email
 
         return (
-            <Row className="login-container">
+            <Row
+                className="login-container"
+                onKeyPress={target => {
+                    if (target.charCode === 13 && validateEmail(email) === 'success') {
+                        this.props.login(escape(email))
+                    }
+                }}
+            >
                 <Col xs={12} sm={6} smOffset={3}>
                     <Panel header={<PageHeader className="login-header">Login</PageHeader>}>
                         <FormGroup controlId="email" validationState={validateEmail(email)}>
