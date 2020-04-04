@@ -19,7 +19,7 @@ module.exports = {
         extensions: [ '.js', '.jsx', '.json' ]
     },
     module: {
-        loaders : [
+        rules : [
             {
                 test: /\.jsx?/,
                 include : APP_DIR,
@@ -27,11 +27,11 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                loaders: [ 'style-loader', 'css-loader' ]
+                use: [ 'style-loader', 'css-loader' ]
             },
             {
                 test: /\.scss$/,
-                loaders: [ 'style-loader', 'css-loader', 'sass-loader' ]
+                use: [ 'style-loader', 'css-loader', 'sass-loader' ]
             },
             {
                 test: /\.(jpe?g|png)$/i,
